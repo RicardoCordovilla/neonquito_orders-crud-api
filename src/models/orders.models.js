@@ -54,6 +54,10 @@ const Order = db.define('orders', {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue:"Daniel Yasig"
+    },
+    finishdate:{
+        type:DataTypes.DATEONLY,
+        allowNull:false
     }
 
 },

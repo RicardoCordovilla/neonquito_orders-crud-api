@@ -28,7 +28,8 @@ const createOrder = async (data) => {
         process:data.process,
         location:data.location,
         designer:data.designer,
-        maker:data.maker
+        maker:data.maker,
+        finishdate:data.finishdate
     })
     return response
 }

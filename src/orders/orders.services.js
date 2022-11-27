@@ -16,9 +16,9 @@ const getAllOrders = (req, res) => {
 
 
 const createOrder = (req, res) => {
-    const { name, phone, title, description, imageurl, cost, process, location, designer, maker } = req.body
-    if (name && phone && title && description && imageurl && cost && process && location && designer && maker) {
-        ordersController.createOrder({ name, phone, title, description, imageurl, cost, process, location, designer, maker })
+    const { name, phone, title, description, imageurl, cost, process, location, designer, maker,finishdate } = req.body
+    if (name && phone && title && description && imageurl && cost && process && location && designer && maker,finishdate) {
+        ordersController.createOrder({ name, phone, title, description, imageurl, cost, process, location, designer, maker,finishdate })
             .then(data => {
                 res.status(201).json(data)
             })
@@ -38,7 +38,8 @@ const createOrder = (req, res) => {
                 process: 'integer 0-5',
                 location: 'string',
                 designer: 'string',
-                maker: 'string'
+                maker: 'string',
+                finishdate:'yyyy/mm/dd'
             }
         })
     }
@@ -57,9 +58,9 @@ const getOrderByPhone = (req, res) => {
 
 const patchOrder = (req, res) => {
     const id = req.params.id
-    const { name, phone, title, description, imageurl, cost, process, location, designer, maker } = req.body
+    const { name, phone, title, description, imageurl, cost, process, location, designer, maker,finishdate } = req.body
 
-    ordersController.updateOrder(id, { name, phone, title, description, imageurl, cost, process, location, designer, maker })
+    ordersController.updateOrder(id, { name, phone, title, description, imageurl, cost, process, location, designer, maker,finishdate })
         .then(data => {
             if (data[0]) {
                 res.status(200).json({ message: `User with ID: ${id}, edited succesfully!` })
